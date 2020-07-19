@@ -1,5 +1,5 @@
 [package]
-name = "vexCTF-rust"
+name = "vexctf-rust"
 version = "0.1.0"
 authors = ["ThePuzzlemaker <tpzker@thepuzzlemaker.info>", "Alec Petridis <alecthechop@protonmail.com>"]
 edition = "2018"
