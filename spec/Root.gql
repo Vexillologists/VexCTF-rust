@@ -1,0 +1,59 @@
+"""
+Unnamed CTF Platform
+API Specification version 1.0.0
+
+For the purposes of organization and brevity, commented
+ES6-like imports will be used to extend query and mutation types
+as well as add more types.
+Any type ending with `Ext*` will extend the type with the
+same name without `Ext*` at the end.
+
+For example: 
+```Root.gql
+# import * from './SomeQueryExtension.gql'
+
+type Query {
+  someField: SomeType!
+  # Merged by import:
+  someOtherField: SomeOtherType!
+}
+```
+
+```SomeQueryExtension.gql
+type QueryExtSome {
+  someOtherField: SomeOtherType!
+}
+```
+"""
+schema {
+  query: Query,
+  mutation: Mutation
+}
+
+# import * from './Session.gql'
+# import * from './Relay.gql'
+# import * from './Team.gql'
+# import * from './User.gql'
+# import * from './Challenge.gql'
+# import * from './Scoreboard.gql'
+
+"""
+Root Query
+"""
+type Query {
+  """
+  Gets the current SemVer-compliant API version
+  """
+  apiVersion: String!
+}
+
+"""
+Root Mutation
+"""
+type Mutation {
+  """
+  This mutation should not actually be implemented.
+  It is simply to allow quasi-extension.
+  """
+  ignoreMe: String!
+}

@@ -1,0 +1,16 @@
+# Session types
+
+"""
+A session token in the form of a JSON Web Token (JWT).
+It may contain any application-specific data.
+If a query or mutation requests a session token, it probably
+means that it requires authentication.
+
+The JWT payload contains the following fields:
+{
+  exp: The expiry time (usually 36 hours from assignment),
+  jti: The internal session ID, in any form,
+  uid: The user's Node ID
+}
+"""
+scalar SessionToken
