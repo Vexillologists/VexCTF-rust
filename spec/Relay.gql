@@ -10,7 +10,7 @@ interface Node {
   id: ID!
 }
 
-type QueryExtRelay {
+extend type Query {
   """
   Looks up a Node based on it's Globally Unique ID.
   """

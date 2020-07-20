@@ -4,15 +4,6 @@ use crate::schema::graphql::{Mutation, Query, Schema};
 
 use super::pooling::{self, DbConn};
 
-#[rocket::get("/graphql?<request>")]
-fn get_graphql_handler(
-    context: DbConn,
-    request: juniper_rocket::GraphQLRequest,
-    schema: State<Schema>,
-) -> juniper_rocket::GraphQLResponse {
-    request.execute(&schema, &context)
-}
-
 #[rocket::post("/graphql", data = "<request>")]
 fn post_graphql_handler(
     context: DbConn,
@@ -36,7 +27,7 @@ pub fn init() {
         .manage(Schema::new(Query, Mutation))
         .mount(
             "/",
-            rocket::routes![graphiql, get_graphql_handler, post_graphql_handler],
+            rocket::routes![graphiql, post_graphql_handler],
         )
         .launch();
 }

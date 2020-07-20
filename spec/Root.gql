@@ -5,8 +5,6 @@ API Specification version 1.0.0
 For the purposes of organization and brevity, commented
 ES6-like imports will be used to extend query and mutation types
 as well as add more types.
-Any type ending with `Ext*` will extend the type with the
-same name without `Ext*` at the end.
 
 For example: 
 ```Root.gql
@@ -14,8 +12,6 @@ For example:
 
 type Query {
   someField: SomeType!
-  # Merged by import:
-  someOtherField: SomeOtherType!
 }
 ```
 
@@ -27,6 +23,7 @@ type QueryExtSome {
 """
 schema {
   query: Query,
+
   mutation: Mutation
 }
 
@@ -52,8 +49,9 @@ Root Mutation
 """
 type Mutation {
   """
-  This mutation should not actually be implemented.
-  It is simply to allow quasi-extension.
+  This is just to please the linter.
+  Please ignore it and don't implement it.
+  Remove it when merging files.
   """
   ignoreMe: String!
 }

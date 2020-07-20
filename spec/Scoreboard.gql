@@ -65,7 +65,7 @@ type ScoreboardTeam implements Node {
   team: Team!
 }
 
-type QueryExtScoreboard {
+extend type Query {
   """
   Look up the scoreboard
   """

@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@2fd/graphdoc": "^2.4.0",
-    "global": "^4.4.0"
-  }
-}
