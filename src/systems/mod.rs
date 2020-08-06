@@ -1,9 +1,9 @@
 use std::panic;
 
+pub mod context;
 pub mod crypto;
 pub mod errors;
 pub mod logging;
-pub mod pooling;
 pub mod session;
 pub mod webserver;
 

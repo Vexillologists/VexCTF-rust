@@ -2,11 +2,11 @@ use rocket::{config::LoggingLevel, response::content, State};
 
 use crate::schema::graphql::{Mutation, Query, Schema};
 
-use super::pooling::{self, DbConn};
+use super::context::{self, Context};
 
 #[rocket::post("/graphql", data = "<request>")]
 fn post_graphql_handler(
-    context: DbConn,
+    context: Context,
     request: juniper_rocket::GraphQLRequest,
     schema: State<Schema>,
 ) -> juniper_rocket::GraphQLResponse {
@@ -22,12 +22,9 @@ pub fn init() {
     let mut conf = rocket::config::Config::active().expect("Failed to get Rocket configuration");
     conf.set_log_level(LoggingLevel::Critical);
     rocket::custom(conf)
-        .manage(pooling::init_pool_pg())
-        .manage(pooling::init_pool_redis())
+        .manage(context::pg_init())
+        .manage(context::redis_init())
         .manage(Schema::new(Query, Mutation))
-        .mount(
-            "/",
-            rocket::routes![graphiql, post_graphql_handler],
-        )
+        .mount("/", rocket::routes![graphiql, post_graphql_handler])
         .launch();
 }

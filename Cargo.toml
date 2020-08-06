@@ -1,20 +1,20 @@
 [package]
 name = "vexctf"
 version = "0.1.0"
-authors = ["ThePuzzlemaker <tpzker@thepuzzlemaker.info>", "Alec Petridis <alecthechop@protonmail.com>"]
+authors = ["ThePuzzlemaker <tpzker@thepuzzlemaker.info>", "Alec Petridis <alecthechop@protonmail.com>", "VexCTF Security Team <vexctf@teamisotope.com>"]
 edition = "2018"
 license = "MIT"
 
 [dependencies]
 # Encoding
 serde = { version = "1.0.114", features = ["derive"] }
-serde_json = "1.0.56"
+serde_json = "1.0.57"
 base64 = "0.12.3"
 # Config
 dotenv = "0.15.0"
 # Database
 diesel = { version = "1.4.5", features = ["postgres", "chrono"] }
-# FTS for Diesel with PostgreSQL
+# FTS for Diesel with PostgreSQL. It'll be enabled if it's required.
 # diesel_full_text_search = "1.0.1"
 # CITEXT for Diesel with PostgreSQL
 diesel-citext = "0.3.0"

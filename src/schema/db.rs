@@ -213,10 +213,4 @@ joinable!(solves -> challenges (challenge_id));
 joinable!(solves -> teams (team_id));
 joinable!(users -> teams (team_id));
 
-allow_tables_to_appear_in_same_query!(
-    categories,
-    challenges,
-    solves,
-    teams,
-    users,
-);
+allow_tables_to_appear_in_same_query!(categories, challenges, solves, teams, users,);

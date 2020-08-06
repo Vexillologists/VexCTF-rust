@@ -1,9 +1,9 @@
-use crate::systems::pooling::DbConn;
+use crate::systems::context::Context;
 
 pub struct Query;
 
 #[juniper::object(
-    Context = DbConn,
+    Context = Context,
 )]
 impl Query {
     #[graphql(description = "Get the current SemVer-compliant API version")]
@@ -15,7 +15,7 @@ impl Query {
 pub struct Mutation;
 
 #[juniper::object(
-    Context = DbConn,
+    Context = Context,
 )]
 impl Mutation {}
 
